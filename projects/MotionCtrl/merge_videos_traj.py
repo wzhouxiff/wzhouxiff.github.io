@@ -71,6 +71,7 @@ v3_path = 'D:\\work\\LVDM_output\\supp\\MotionCtrl_page_videos_v1\\MotionCtrl_pa
 traj_path = 'D:\\work\\LVDM_output\\supp\\MotionCtrl_page_videos_v1\\MotionCtrl_page_videos\\images\\MotionCtrl\\shake_1\\images'
 
 ######################################
+
 cur_output_root = output_root + '\\s_curve_3_v1.mp4'
 v1_path = 'D:\\work\\LVDM_output\\supp\\MotionCtrl_page_videos_v1\\MotionCtrl_page_videos\\images\\MotionCtrl\\plane3'
 v2_path = 'D:\\work\\LVDM_output\\supp\\MotionCtrl_page_videos_v1\\MotionCtrl_page_videos\\images\\MotionCtrl\\leaf2\\images'
