@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <link rel="icon" type="image/png" href="./img/icon.png">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <style>
+        iframe {
+            height: 75vh;
+            width: 100%;
+            /* or any width you prefer */
+            border: none;
+        }
+    </style>
+
+    <title>MotionCtrl</title>
+
+    <meta name="description" content="MotionCtrl">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+    <!--FACEBOOK-->
+    <meta property="og:image" content="./img/milestone.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="2040">
+    <meta property="og:image:height" content="638">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://ailab-cvc.github.io/seed" />
+    <meta property="og:title" content="MotionCtrl" />
+    <meta property="og:description" content="Project page for MotionCtrl." />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MotionCtrl" />
+    <meta name="twitter:description" content="Project page for MotionCtrl." />
+    <meta name="twitter:image" content="./img/milestone.jpg" />
+
+
+    <!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-52J0PM8XKV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-52J0PM8XKV');
+    </script>
+
+    <!-- <link rel="stylesheet" href="css/bulma.min.css"> -->
+    <link rel="stylesheet" href="css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="css/bulma-slider.min.css">
+    <!-- <link rel="stylesheet" href="css/fontawesome.all.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script defer src="js/fontawesome.all.min.js"></script>
+    <script src="js/bulma-carousel.min.js"></script>
+    <script src="js/bulma-slider.min.js"></script>
+    <script src="js/index.js"></script>
+
+
+    <style>
+        .nav-pills {
+            position: relative;
+            display: inline;
+        }
+
+        .author {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+            /* If you want dots under the hoverable text */
+        }
+
+        /* Tooltip text */
+        .author .affiliation {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+
+            /* Position the tooltip text - see examples below! */
+            position: absolute;
+            z-index: 1;
+            width: 120px;
+            top: 100%;
+            left: 50%;
+            margin-left: -60px;
+            /* Use half of the width (120/2 = 60), to center the tooltip */
+        }
+
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .author:hover .affiliation {
+            visibility: visible;
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .video-wrapper {
+            flex: 1;
+            margin-right: 2px;
+            margin-left: 2px;
+            max-width: calc(33.33%px);
+            /* 33.33% for 3 videos per row, subtracting margins */
+            height: auto;
+            text-align: center;
+        }
+
+        .video {
+            max-width: 100%;
+            height: auto;
+            /* height: 230px; */
+        }
+
+        .caption {
+            margin-top: 0px;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: row;
+            /* Arrange items horizontally */
+            justify-content: space-between;
+            /* Spread items horizontally */
+            align-items: flex-end;
+            /* Align items at the bottom */
+        }
+
+        .image-container .image-wrapper {
+            flex: 1;
+            /* Distribute equal width to both images */
+            padding: 10px;
+            /* Add some spacing between images */
+        }
+
+        .image-container img {
+            max-width: 100%;
+            /* Constrain image width */
+            height: auto;
+            /* Maintain image aspect ratio */
+            display: block;
+            /* Remove extra space below inline images */
+            margin: 0 auto;
+            /* Center the images within their containers */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-14 text-center">
+                <strong>
+                    <font size="+4">
+                        <!-- &#127752;  -->
+                        <span>MotionCtrl</span>: A Unified and Flexible
+                        Motion Controller
+                        for Video Generation
+                    </font>
+
+            </h2>
+        </div>
+
+
+
+
+
+        <div class="col-md-12 text-center">
+            <span class="author-block">
+                <a href="https://github.com/wzhouxiff">Zhouxia Wang</a><sup>1,2</sup>,
+            </span>
+
+            <span class="author-block">
+                <a href="https://github.com/jiangyzy">Ziyang Yuan</a><sup>1,4</sup>,
+            </span>
+
+            <span class="author-block">
+                <a href="https://xinntao.github.io">Xintao Wang</a><sup>1,3&#9993</sup>,
+            </span>
+
+            <span class="author-block">
+                <a href="http://tianshuichen.com/">Tianshui Chen</a><sup>6</sup>,
+            </span>
+
+            <span class="author-block">
+                <a href="https://menghanxia.github.io/">Menghan Xia</a><sup>3</sup>
+            </span>
+
+            <span class="author-block">
+                <a href="http://luoping.me/">Ping Luo</a><sup>2,5&#9993</sup>
+            </span>
+
+            <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=4oXBp9UAAAAJ">Ying Shan</a><sup>1,3</sup>,
+            </span>
+
+            <div class="content text-center">
+                <span class="author-block"><sup>1</sup>ARC Lab, Tencent PCG,</span>
+                <span class="author-block"><sup>2</sup>The University of Hong Kong,</span>
+                <span class="author-block"><sup>3</sup>Tencent AI Lab,</span>
+                <span class="author-block"><sup>4</sup>Tsinghua University,</span>
+                <span class="author-block"><sup>5</sup>Shanghai AI Laboratory</span>
+                <span class="author-block"><sup>6</sup>Guangdong University of Technology</span>
+            </div>
+
+        </div>
+
+        <div class="col-md-4 col-md-offset-4 text-center">
+            <ul class="nav nav-pills nav-justified">
+                <li>
+                    <a target="_blank" href="https://arxiv.org/pdf/2312.03641.pdf">
+                        <image src="assets/images/arxiv.png" height="25px" alt="arXiv"> arXiv
+                            <!-- <h4><strong>arXiv</strong></h4> -->
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank"
+                        href="https://wzhouxiff.github.io/projects/MotionCtrl/assets/paper/MotionCtrl.pdf">
+                        <image src="assets/images/book_logo.png" height="25px" alt="Paper"> Paper
+                            <!-- <h4><strong>arXiv</strong></h4> -->
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="https://github.com/TencentARC/MotionCtrl">
+                        <image src="assets/images/github.png" height="25px" alt="Code"> Code
+                            <!-- <h4><strong>Github</strong></h4> -->
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <div class="col-md-8 col-md-offset-2">
+            <div class="content text-align">
+                </br>
+                <ul>
+                    <li>
+                        <font size="+1">
+                            We propose <b>MotionCtrl</b>, a unified and flexible motion controller for video generation.
+                            This
+                            controller is designed to independently and effectively manage both camera and object
+                            motions in the
+                            generated videos.
+                        </font>
+                    </li>
+                    <li>
+                        <font size="+1">
+                            MotionCtrl can be deployed on <b>LVDM</b><a href="#LVDM"> [1]</a> / <b>VideoCrafter1</b><a
+                                href="#videocrafter"> [2]</a> (an improved version over LVDM) and <b>AnimateDiff</b><a
+                                href="#animatediff">[3]</a>. The
+                            results
+                            of these deployments are showcased on this page. Additionally, MotionCtrl can be integrated
+                            with
+                            other video generation methods, such as <b>SVD</b><a href="#svd">[4]</a>. The results and
+                            model for
+                            this integration will be provided shortly.
+                        </font>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="col-md-8 col-md-offset-2">
+            <h2 class="content text-center">
+                <b>Selected Results</b>
+            </h2>
+            <ul>
+                <li>
+                    MotionCtrl has the capability to guide the video generation model in creating videos with
+                    <b>complex
+                        camera motion</b>, given a sequence of camera poses.
+                </li>
+                <li>
+                    MotionCtrl can guide the video generation model to produce videos with <b>specific object
+                        motion</b>,
+                    provided object trajectories.
+                </li>
+
+                <li>
+                    These results are generative with <b>only one unified trained model</b>.
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 ">
+                <div id="results-carousel">
+
+
+                    <div class="item item-steve">
+                        <a href="assets/videos/teasers/camera_d971457c81bca597.gif">
+                            <image poster="" id="steve" autoplay controls loop playsinline height="100%" width="100%"
+                                src="assets/videos/teasers/camera_d971457c81bca597.gif">
+                        </a>
+                    </div>
+                    </br>
+
+                    <div class="item item-steve">
+                        <a href="assets/videos/teasers/camera_Round-R_ZoomIn.gif">
+                            <image poster="" id="steve" autoplay controls loop playsinline height="100%" width="100%"
+                                src="assets/videos/teasers/camera_Round-R_ZoomIn.gif">
+                        </a>
+                    </div>
+                    </br>
+
+
+                    <div class="item item-steve">
+                        <a href="assets/videos/teasers/shake_1.gif">
+                            <image poster="" id="steve" height="100%" width="100%"
+                                src="assets/videos/teasers/shake_1.gif">
+                        </a>
+                    </div>
+                    </br>
+
+                    <div class="item item-steve">
+                        <a href="assets/videos/teasers/s_curve_3_v1.gif">
+                            <image poster="" id="steve" height="100%" width="100%"
+                                src="assets/videos/teasers/s_curve_3_v1.gif">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </br>
+
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <h2>
+                <b>
+                    <!-- <font size="+5">Abstract</font> -->
+                    Abstract
+                </b>
+            </h2>
+        </div>
+
+
+
+        <div class="col-md-8 col-md-offset-2">
+            <p class="text-justify">
+
+                Motions in a video primarily consist of camera motion, induced by camera movement, and object motion,
+                resulting from
+                object movement. Accurate control of both camera and object motion is essential for video
+                generation.
+                However, existing works either mainly focus on one type of motion or do not clearly distinguish between
+                the two,
+                limiting their control capabilities and diversity. Therefore, this paper presents MotionCtrl, a unified
+                and flexible
+                motion controller for video generation designed to effectively and independently control camera and
+                object
+                motion. The
+                architecture and training strategy of MotionCtrl are carefully devised, taking into account the inherent
+                properties of
+                camera motion, object motion, and imperfect training data. Compared to previous methods, MotionCtrl
+                offers three main
+                advantages: 1) It effectively and independently controls camera motion and object motion, enabling more
+                fine-grained
+                motion control and facilitating flexible and diverse combinations of both types of motion. 2) Its motion
+                conditions are
+                determined by camera poses and trajectories, which are appearance-free and minimally impact the
+                appearance or shape of
+                objects in generated videos. 3) It is a relatively generalizable model that can adapt to a wide array of
+                camera poses
+                and trajectories once trained. Extensive qualitative and quantitative experiments have been conducted to
+                demonstrate the
+                superiority of MotionCtrl over existing methods.
+
+            </p>
+        </div>
+
+        </br>
+
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <h2>
+                <b>
+                    <!-- <font size="+4">Methods</font> -->
+                    Methods
+                </b>
+            </h2>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="assets/images/framework_v1.png" class="img-responsive" , width="1000">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
+            <p class="text-justify">
+                MotionCtrl extends the Denoising U-Net structure of LVDM with a Camera Motion Control Module (CMCM) and
+                an Object Motion
+                Control Module (OMCM). As illustrated in (b), the CMCM integrates camera pose sequences <i>RT</i> with
+                LVDM's
+                temporal
+                transformers by appending <i>RT</i> to the input of the second self-attention module and applying a
+                tailored
+                and lightweight
+                fully connected layer to extract the camera pose feature for subsequent processing. The OMCM utilizes
+                convolutional
+                layers and downsamplings to derive multi-scale features from <i>Trajs</i>, which are spatially
+                incorporated
+                into LVDM's
+                convolutional layers to direct object motion. Further given a text prompt, LVDM generates videos from
+                noise that
+                correspond to the prompt, with background and object movements reflecting the specified camera poses and
+                trajectories.
+            </p>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
+            <h2 class="content  text-center">
+                <b>Results based on LVDM<a href="#LVDM"> [1]</a> / VideoCrafter1</b><a href="#videocrafter"> [2]</a></b>
+            </h2>
+            <p style="color: blue">
+                Nothed that all the results, including the results of camera motion, object motion,
+                and combination of these two motions are attained with <b>only one unified trained model</b>.
+            </p>
+
+
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
+            <h4>
+                <b>(A) Camera Motion Control</b>
+
+            </h4>
+            <p>
+                (a) MotionCtrl produces videos with <b>complex camera motion</b>.
+                <!-- given a sequence of camera poses. -->
+            </p>
+
+        </div>
+
+        <table width="920" align="center">
+            <tbody>
+                <tr>
+                    <th>Camera Motion </th>
+                    <th>Prompt </th>
+                    <th>Sample 1</th>
+                    <th>Sample 2</th>
+                    <th>Sample 3</th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/our_results/camera_Round-R_ZoomIn.png">
+                            <img width="200" src="assets/videos/our_results/camera_Round-R_ZoomIn.png">
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">
+                        <p>
+                            "A dog sitting on
+                        </p>
+                        <p>
+                            the green grass."
+                        </p>
+
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_dog2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_dog2.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_dog.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_dog.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_dog1.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_dog1.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                    </th>
+                    <th style="font-family: Chalkduster">
+                        <p>
+                            "A cat lying on
+                        </p>
+                        <p>
+                            the floor."
+                        </p>
+
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_cat0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_cat0.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_cat1.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_cat1.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_cat2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_cat2.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                        <a href="assets/videos/our_results/camera_d971457c81bca597.png">
+                            <img width="200" src="assets/videos/our_results/camera_d971457c81bca597.png">
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">
+                        <p>
+                            "A castle in
+                        </p>
+                        <p>
+                            the forest."
+                        </p>
+
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_castle0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_castle0.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_castle1.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_castle1.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_castle2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_castle2.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                    </th>
+                    <th style="font-family: Chalkduster">
+                        <p>
+                            "A temple on
+                        </p>
+                        <p>
+                            the mountains."
+                        </p>
+
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_temple0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_temple0.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_temple1.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_temple1.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_temple2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_temple2.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+
+        </br>
+
+        <div class="col-md-8 col-md-offset-2">
+            <p>
+                (b) MotionCtrl produces videos with <b>8 basic camera motions</b>.
+                <!-- given a sequence of camera poses. -->
+            </p>
+
+        </div>
+
+        <table width="810" align="center">
+            <tbody>
+                <tr>
+                    <th>Pan Up</th>
+                    <th>Pan Down</th>
+                    <th>Pan Left</th>
+                    <th>Pan Right</th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_U.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_U.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_D.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_D.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_L.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_L.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_R.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_R.gif">
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Zoom In</th>
+                    <th>Zoom Out</th>
+                    <th>Anti-Clockwise</th>
+                    <th>Clockwise</th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_I.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_I.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_O.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_O.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_ACW.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_ACW.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_CW.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_CW.gif">
+                        </a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <h5 style="font-family: Chalkduster" align="center">
+            <b>Prompt: "A landscape with mountains and lakes at sunrise."</b>
+        </h5>
+        </br>
+
+        <div class="col-md-8 col-md-offset-2">
+            <p>
+                (c) MotionCtrl can <b>fine-grainedly adjust</b> the camera motion of the generated video.
+                <!-- given a sequence of camera poses. -->
+            </p>
+
+        </div>
+
+        <table width="810" align="center">
+            <tbody>
+                <tr>
+                    <th>0.2x Speed </th>
+                    <th>0.4x Speed </th>
+                    <th>1.0x Speed </th>
+                    <th>2.0x Speed </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_in_speed_0.2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_in_speed_0.2.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_in_speed_0.4.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_in_speed_0.4.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_in_speed_1.0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_in_speed_1.0.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_in_speed_2.0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_in_speed_2.0.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <h5 style="font-family: Chalkduster" align="center">
+            <b>Zoom In</b>
+        </h5>
+
+        <table width="810" align="center">
+            <tbody>
+                <tr>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_out_speed_0.2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_out_speed_0.2.gif" autoplay
+                                loop controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_out_speed_0.4.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_out_speed_0.4.gif" autoplay
+                                loop controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_out_speed_1.0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_out_speed_1.0.gif" autoplay
+                                loop controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_out_speed_2.0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_out_speed_2.0.gif" autoplay
+                                loop controls>
+                        </a>
+                    </th>
+                </tr>
+
+            </tbody>
+        </table>
+        <h5 style="font-family: Chalkduster" align="center">
+            <b>Zoom Out</b>
+        </h5>
+
+
+        <h5 style="font-family: Chalkduster" align="center">
+            <b>Prompt: "Rocky coastline with crashing waves."</b>
+        </h5>
+
+        </br>
+
+
+
+        <div class="col-md-8 col-md-offset-2">
+            <h4>
+                <b>(B) Object Motion Control</b>
+            </h4>
+            <p>
+                MotionCtrl produces videos with <b>specific object motion</b>,
+                given a single or multiple object trajectories.
+            </p>
+
+        </div>
+
+        <table width="920" align="center">
+            <tbody>
+                <tr>
+                    <th>Trajectory(ies)</th>
+                    <th>Prompt</th>
+                    <th>Sample 1</th>
+                    <th>Sample 2</th>
+                    <th>Sample 3</th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/our_results/shake_1.gif">
+                            <image width="200" src="assets/videos/our_results/shake_1.gif">
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">"Wind chime"</th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_chime1.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_chime1.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_chime3.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_chime3.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_chime7.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_chime7.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+
+
+                <tr>
+                    <th>
+
+                    </th>
+                    <th style="font-family: Chalkduster">"Sunflower"</th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_sunflower0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_sunflower0.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_sunflower1.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_sunflower1.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_sunflower2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_sunflower2.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                        <a href="assets/videos/our_results/s_curve_3.gif">
+                            <image width="200" src="assets/videos/our_results/s_curve_3.gif">
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">"Paper plane"</th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_plane1.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_plane1.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_plane2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_plane2.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_plane3.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_plane3.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                    </th>
+                    <th style="font-family: Chalkduster">"Fallen leaf"</th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_leaf0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_leaf0.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_leaf1.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_leaf1.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_leaf2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_leaf2.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                        <a href="assets/videos/our_results/horizon_right_p12v.gif">
+                            <image width="200" src="assets/videos/our_results/horizon_right_p12v.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">"Two zebras"</th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_twozebras0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_twozebras0.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_twozebras1.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_twozebras1.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_twozebras2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_twozebras2.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                    </th>
+                    <th style="font-family: Chalkduster">"Two cats"</th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_twocats0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_twocats0.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_twocats1.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_twocats1.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_twocats2.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_twocats2.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+
+        </br>
+
+        <div class="col-md-8 col-md-offset-2">
+            <h4>
+                <b>(C) Camera + Object Motion Control</b>
+            </h4>
+            <p>
+                MotionCtrl can <b>simultaneously</b> control the camera and object motion.
+            </p>
+        </div>
+
+        <table width="810" align="center">
+            <tbody>
+                <tr>
+                    <th>Camera Motion</th>
+                    <th>Object Motion</th>
+                    <th>Prompt</th>
+                    <th>Resutls</th>
+                </tr>
+                <tr>
+
+
+                    <th>
+                        <a href="assets/videos/our_results/camera_ZoomOut.png">
+                            <img width="200" src="assets/videos/our_results/camera_ZoomOut.png">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/shaking_10.gif">
+                            <image width="200" src="assets/videos/our_results/shaking_10.gif">
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">
+                        <p>
+                            "The rose is swaying
+                        </p>
+                        <p>
+                            in the wind."
+                        </p>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_rose_2.0.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_rose_2.0.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+
+                <th>
+                    <a href="assets/videos/our_results/camera_ZoomIn.png">
+                        <img width="200" src="assets/videos/our_results/camera_ZoomIn.png">
+                    </a>
+                </th>
+                <th>
+                    <a href="assets/videos/our_results/horizon_10.gif">
+                        <image width="200" src="assets/videos/our_results/horizon_10.gif">
+                    </a>
+                </th>
+                <th style="font-family: Chalkduster">
+                    <p>
+                        "A horse running
+                    </p>
+                    <p>
+                        on the road."
+                    </p>
+                </th>
+                <th>
+                    <a href="assets/videos/our_results/MotionCtrl_horse.gif">
+                        <image width="200" src="assets/videos/our_results/MotionCtrl_horse.gif">
+                    </a>
+                </th>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        </br>
+
+        <div class="col-md-8 col-md-offset-2">
+            <h4>
+                <b>(D) Comparisons with VideoComposer<a href="#videocomposer"> [5]</a></b>
+            </h4>
+            <p>
+                MotionCtrl generates videos with camera or object motion well aligned with the
+                reference videos or given trajectories, <b>while maintaining a natural appearance</b>.
+                .
+            </p>
+        </div>
+
+
+        <table width="780" align="center">
+            <tbody>
+                <tr>
+                    <th>
+                        <p style="font-size: large;">Camera Motion</p>
+                        <p>Provided Reference Video</p>
+
+                    </th>
+                    <th>Prompt</th>
+                    <th>VideoComposer <a href="#videocomposer"> [5]</a></th>
+                    <th>MotionCtrl</th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/videocomposer/videocomposer_1424acd0007d40b5.gif">
+                            <image width="200" src="assets/videos/videocomposer/videocomposer_1424acd0007d40b5.gif">
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">"Eiffel Tower in Paris."</th>
+                    <th>
+                        <a href="assets/videos/videocomposer/videocomposer_eiffel.gif">
+                            <image width="200" src="assets/videos/videocomposer/videocomposer_eiffel.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_eiffel.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_eiffel.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/videocomposer/videocomposer_5bdfcb2cf3ea6b54.gif">
+                            <image width="200" src="assets/videos/videocomposer/videocomposer_5bdfcb2cf3ea6b54.gif">
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">
+                        <p>
+                            "A human robot
+                        </p>
+                        <p>
+                            standing on Mars."
+                        </p>
+
+                    </th>
+                    <th>
+                        <a href="assets/videos/videocomposer/videocomposer_robot.gif">
+                            <image width="200" src="assets/videos/videocomposer/videocomposer_robot.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_robot.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_robot.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+
+
+
+            </tbody>
+        </table>
+
+        </br>
+        <table width="740" align="center">
+            <tbody>
+                <tr>
+                    <th style="font-size: large;">Object Motion </th>
+                    <th>Prompt</th>
+                    <th>VideoComposer <a href="#videocomposer"> [5]</a></th>
+                    <th>MotionCtrl</th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/videocomposer/curve_3.gif">
+                            <image width="200" src="assets/videos/videocomposer/curve_3.gif">
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">"A girl is skiing."</th>
+                    <th>
+                        <a href="assets/videos/videocomposer/videocomposer_ski.gif">
+                            <image width="200" src="assets/videos/videocomposer/videocomposer_ski.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_ski.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_ski.gif">
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                        <a href="assets/videos/videocomposer/z_curve_5.gif">
+                            <image width="200" src="assets/videos/videocomposer/z_curve_5.gif">
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">
+                        <p>
+                            "A feather floating
+                        </p>
+                        <p>
+                            in the air."
+                        </p>
+
+
+                    </th>
+
+                    <th>
+                        <a href="assets/videos/videocomposer/videocomposer_feather.gif">
+                            <image width="200" src="assets/videos/videocomposer/videocomposer_feather.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/our_results/MotionCtrl_feather.gif">
+                            <image width="200" src="assets/videos/our_results/MotionCtrl_feather.gif" autoplay loop
+                                controls>
+                        </a>
+                    </th>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        </br>
+
+        <div class="col-md-8 col-md-offset-2">
+            <h2 class="content  text-center">
+                <b>Results based on AnimateDiff<a href="#animatediff">[3]</a></b>
+            </h2>
+            <p style="color: blue">
+                Nothed that all the results, including the results of camera motion and object motion,
+                are attained with <b>only one unified trained model</b>.
+            </p>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
+            <h4>
+                <b>(A) Camera Motion Control</b>
+            </h4>
+            <p>
+                (a) There are results with <b>8 basic camera motions</b>.
+            </p>
+
+        </div>
+
+        <table width="810" align="center">
+            <tbody>
+                <tr>
+                    <th>Pan Up</th>
+                    <th>Pan Down</th>
+                    <th>Pan Left</th>
+                    <th>Pan Right</th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/normal/U.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/normal/U.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/normal/D.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/normal/D.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/normal/L.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/normal/L.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/normal/R.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/normal/R.gif">
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Zoom In</th>
+                    <th>Zoom Out</th>
+                    <th>Anti-Clockwise</th>
+                    <th>Clockwise</th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/normal/I.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/normal/I.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/normal/O.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/normal/O.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/normal/ACW.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/normal/ACW.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/normal/CW.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/normal/CW.gif">
+                        </a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <h5 style="font-family: Chalkduster" align="center">
+            <b>Prompt: "A teddy bear at the supermarket."</b>
+        </h5>
+
+        </br>
+
+        <div class="col-md-8 col-md-offset-2">
+            <p>
+                (b) There are results of zoom in and zoom out with <b>different speeds</b>.
+            </p>
+
+        </div>
+
+        <table width="810" align="center">
+            <tbody>
+                <tr>
+                    <th>1.0x Speed </th>
+                    <th>2.0x Speed </th>
+                    <th>3.0x Speed </th>
+                    <th>5.0x Speed </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/zoom_in_out_speed/castle_in_1.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/zoom_in_out_speed/castle_in_1.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/zoom_in_out_speed/castle_in_2.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/zoom_in_out_speed/castle_in_2.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/zoom_in_out_speed/castle_in_3.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/zoom_in_out_speed/castle_in_3.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/zoom_in_out_speed/castle_in_5.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/zoom_in_out_speed/castle_in_5.gif">
+                        </a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <h5 style="font-family: Chalkduster" align="center">
+            <b>Zoom In</b>
+        </h5>
+
+        <table width="810" align="center">
+            <tbody>
+                <tr>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/zoom_in_out_speed/castle_out_1.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/zoom_in_out_speed/castle_out_1.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/zoom_in_out_speed/castle_out_2.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/zoom_in_out_speed/castle_out_2.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/zoom_in_out_speed/castle_out_3.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/zoom_in_out_speed/castle_out_3.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/zoom_in_out_speed/castle_out_5.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/zoom_in_out_speed/castle_out_5.gif">
+                        </a>
+                    </th>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <h5 style="font-family: Chalkduster" align="center">
+            <b>Zoom Out</b>
+        </h5>
+        <h5 style="font-family: Chalkduster" align="center">
+            <b>Prompt: "A castle on the mountains."</b>
+        </h5>
+
+        </br>
+
+        <div class="col-md-8 col-md-offset-2">
+            <p>
+                (c) There are results with <b>complex camera motions</b>.
+            </p>
+
+        </div>
+
+        <table width="810" align="center">
+            <tbody>
+                <tr>
+                    <th>Camera Motion</th>
+                    <th>Sample</th>
+                    <th>Camera Motion</th>
+                    <th>Sample</th>
+                    <th>Camera Motion</th>
+                    <th>Sample</th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/complex/0f12b97e0e4c7e21.png">
+                            <img width="200" src="assets/videos/ours_animatediff/complex/0f12b97e0e4c7e21.png">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/complex/0f12b97e0e4c7e21.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/complex/0f12b97e0e4c7e21.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/complex/1424acd0007d40b5.png">
+                            <img width="200" src="assets/videos/ours_animatediff/complex/1424acd0007d40b5.png">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/complex/1424acd0007d40b5.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/complex/1424acd0007d40b5.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/complex/camera_Round-R_ZoomIn.png">
+                            <img width="200" src="assets/videos/ours_animatediff/complex/camera_Round-R_ZoomIn.png">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/complex/round_in.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/complex/round_in.gif">
+                        </a>
+                    </th>
+                </tr>
+
+            </tbody>
+        </table>
+        <h5 style="font-family: Chalkduster" align="center">
+            <b>Prompt: "A girl."</b>
+        </h5>
+
+        </br>
+        <div class="col-md-8 col-md-offset-2">
+            <h4>
+                <b>(B) Object Motion Control</b>
+            </h4>
+            <p>
+                There are results with <b>specific object motion</b>.
+            </p>
+
+        </div>
+        <table width="930" align="center">
+            <tbody>
+                <tr>
+                    <th>Trajectory</th>
+                    <th>Prompt</th>
+                    <th>Sample 1</th>
+                    <th>Sample 2</th>
+                    <th>Sample 3</th>
+                </tr>
+
+                <tr>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/traj/traj_curve_1.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/traj/traj_curve_1.gif">
+                        </a>
+                    </th>
+                    <th style="font-family: Chalkduster">
+                        <p>
+                            "A teddy bear riding
+                        </p>
+                        <p>
+                            a skateboard."
+                        </p>
+
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/traj/curve_1_1.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/traj/curve_1_1.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/traj/curve_1_2.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/traj/curve_1_2.gif">
+                        </a>
+                    </th>
+                    <th>
+                        <a href="assets/videos/ours_animatediff/traj/curve_1.gif">
+                            <img width="200" src="assets/videos/ours_animatediff/traj/curve_1.gif">
+                        </a>
+                    </th>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        <p><br>
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+
+        <div class="content">
+            <h2>References</h2>
+            <code>
+        <p>
+            <a name="LVDM" id="LVDM"></a>
+            [1] Yingqing He, Tianyu Yang, Yong Zhang, Ying Shan, and Qifeng Chen. Latent video diffusion models for
+            high-fidelity long video generation. arXiv preprint arXiv:2211.13221, 2023.
+        </p>
+        <p>
+            <a name="videocrafter" id="videocrafter"></a>
+            [2] Chen H, Xia M, He Y, et al. Videocrafter1: Open diffusion models for high-quality video generation[J].
+            arXiv
+            preprint
+            arXiv:2310.19512, 2023.
+        </p>
+
+        <p>
+            <a name="animatediff" id="animatediff"></a>
+            [3] Yuwei Guo, Ceyuan Yang, Anyi Rao, Yaohui Wang, Yu Qiao, Dahua Lin, and Bo Dai. Animatediff: Animate your
+            personalized text-to-image diffusion models without specific tuning. arXiv preprint arXiv:2307.04725, 2023.
+        </p>
+        <p>
+            <a name="svd" id="svd"></a>
+            [4] Blattmann A, Dockhorn T, Kulal S, et al. Stable Video Diffusion: Scaling Latent Video Diffusion Models
+            to Large
+            Datasets[J]. arXiv preprint arXiv:2311.15127, 2023.
+        </p>
+
+        <p>
+            <a name="videocomposer" id="ref-TAV"></a>
+            [5] Xiang Wang, Hangjie Yuan, Shiwei Zhang, Dayou Chen, Jiuniu Wang, Yingya Zhang, Yujun Shen, Deli Zhao,
+            and
+            Jingren Zhou. Videocomposer: Compositional video synthesis with motion controllability. arXiv preprint
+            arXiv:2306.02018, 2023.
+        </p>
+        </code>
+        </div>
+
+        <div class="content">
+            <h2>BibTex</h2>
+            <code> @article{wang2023motionctrl,<br>
+          &nbsp;&nbsp;title={MotionCtrl: A Unified and Flexible Motion Controller for Video Generation},<br>
+          &nbsp;&nbsp;author={Wang, Zhouxia and Yuan, Ziyang and Wang, Xintao and Chen, Tianshui and Xia, Menghan and Luo, Ping and Shan,
+        Yin},<br>
+          &nbsp;&nbsp;booktitle={arXiv preprint arXiv:2312.03641},<br>
+          &nbsp;&nbsp;year={2023}<br>
+          } </code>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
