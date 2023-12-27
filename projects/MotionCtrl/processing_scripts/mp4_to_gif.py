@@ -8,8 +8,8 @@ import numpy as np
 from decord import VideoReader, cpu
 
 root_path='D:\\work\\project\\MotionCtrl_project_page\\wzhouxiff.github.io\\projects\\MotionCtrl\\assets\\videos\\our_results'
-root_path='D:\\work\\project\\MotionCtrl_project_page\\wzhouxiff.github.io\\projects\\MotionCtrl\\assets\\videos\\teasers'
-root_path="D:\\work\\project\\MotionCtrl_project_page\\wzhouxiff.github.io\\projects\\MotionCtrl\\assets\\videos\\videocomposer"
+# root_path='D:\\work\\project\\MotionCtrl_project_page\\wzhouxiff.github.io\\projects\\MotionCtrl\\assets\\videos\\teasers'
+# root_path="D:\\work\\project\\MotionCtrl_project_page\\wzhouxiff.github.io\\projects\\MotionCtrl\\assets\\videos\\videocomposer"
 
 in_pathes = sorted(glob(root_path + '\\*.mp4'))
 print(f'Number of videos: {len(in_pathes)}')
@@ -17,7 +17,10 @@ print(f'Number of videos: {len(in_pathes)}')
 # in_pathes = in_pathes[:1]
 
 for in_path in in_pathes:
-    video_name = in_path.split('\\')[-1].split('.')[0]
+    if 'speed_' not in in_path:
+        continue
+    # video_name = in_path.split('\\')[-1].split('.')[0]
+    video_name = in_path.split('\\')[-1][:-4]
     video_reader = VideoReader(in_path, ctx=cpu(0))
     frame_num = len(video_reader)
     print(f'Number of frames: {frame_num} in {video_name}')
