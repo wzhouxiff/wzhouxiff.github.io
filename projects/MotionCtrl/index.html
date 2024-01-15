@@ -177,6 +177,9 @@
             margin: 0 auto;
             /* Center the images within their containers */
         }
+        .container {
+            display: inline-block;
+        }
     </style>
 </head>
 
@@ -195,9 +198,6 @@
 
             </h2>
         </div>
-
-
-
 
 
         <div class="col-md-12 text-center">
@@ -266,7 +266,14 @@
 
                 <li>
                     <a target="_blank" href="https://huggingface.co/spaces/TencentARC/MotionCtrl">
-                        <image src="assets/images/hf-logo.png" height="25px" alt="Code"></image>Demo
+                        <image src="assets/images/hf-logo.png" height="25px" alt="Code"></image>MotionCtrl+VideoCrafter
+                        <!-- <h4><strong>Github</strong></h4> -->
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="https://huggingface.co/spaces/TencentARC/MotionCtrl_SVD">
+                        <image src="assets/images/hf-logo.png" height="25px" alt="Code"></image>MotionCtrl+SVD
                         <!-- <h4><strong>Github</strong></h4> -->
                     </a>
                 </li>
@@ -291,25 +298,99 @@
                     <li>
                         <font size="+1">
                             MotionCtrl can be deployed on <b>LVDM</b><a href="#LVDM"> [1]</a> / <b>VideoCrafter1</b><a
-                                href="#videocrafter"> [2]</a> (an improved version over LVDM) and <b>AnimateDiff</b><a
-                                href="#animatediff">[3]</a>. The
+                                href="#videocrafter"> [2]</a> (an improved version over LVDM), <b>AnimateDiff</b><a
+                                href="#animatediff">[3]</a> and <b>SVD</b><a href="#svd">[4]</a>. The
                             results
-                            of these deployments are showcased on this page. Additionally, MotionCtrl can be integrated
+                            of these deployments are showcased on this page. 
+                            <!-- Additionally, MotionCtrl can be integrated
                             with
                             other video generation methods, such as <b>SVD</b><a href="#svd">[4]</a>. The results and
                             model for
-                            this integration will be provided shortly.
+                            this integration will be provided shortly. -->
                         </font>
                     </li>
                 </ul>
             </div>
         </div>
 
+        <div class="col-md-8 col-md-offset-2">
+            <h3 class="content text-center">
+                <b>Selected Results of MotionCtrl + SVD</b>
+            </h3>
+            <ul>
+                <li>
+                    Current version of MotionCtrl + SVD has the capability to guide an image-to-video generation model to create videos with
+                    <b>both basic and complex
+                        camera motion</b>, given a sequence of camera poses.
+                </li>
+                <li>
+                    You are able to generate videos with our provided 
+                    <a target="_blank", href="https://huggingface.co/spaces/TencentARC/MotionCtrl_SVD">
+                    Gradio Demo</a>
+                     and <a target="_blank", href="https://github.com/TencentARC/MotionCtrl/tree/MotionCtrl_SVD">
+                    [source code]</a>.
+                </li>
+            </ul>
+        </div>
+
+        <table width="880" align="center">
+            <tbody>
+                <tr>
+                    <th>
+                        <a href="assets/svd/00_ibzz5-dxv2h.gif">
+                            <image poster="" id="steve" autoplay controls loop playsinline height="100%" width="100%"
+                                src="assets/svd/00_ibzz5-dxv2h.gif">
+                        </a>
+                        
+                    </th>
+                    <th>
+                        <a href="assets/svd/01_5guvn-0x6v2.gif">
+                            <image poster="" id="steve" autoplay controls loop playsinline height="100%" width="100%"
+                                src="assets/svd/01_5guvn-0x6v2.gif">
+                        </a>
+                    </th>    
+                    </tr>
+                    <tr>
+                        <th>
+                            <a href="assets/svd/12_sn7bz-0hcaf.gif">
+                                <image poster="" id="steve" autoplay controls loop playsinline height="100%" width="100%"
+                                    src="assets/svd/12_sn7bz-0hcaf.gif">
+                            </a>
+                            
+                        </th>
+                        <th>
+                            <a href="assets/svd/13_3lyco-4ru8j.gif">
+                                <image poster="" id="steve" autoplay controls loop playsinline height="100%" width="100%"
+                                    src="assets/svd/13_3lyco-4ru8j.gif">
+                            </a>
+                        </th>    
+                    </tr>
+                    <tr>
+                        <th>
+                            <a href="assets/svd/10_inrmo-e2o0q.gif">
+                                <image poster="" id="steve" autoplay controls loop playsinline height="100%" width="100%"
+                                    src="assets/svd/10_inrmo-e2o0q.gif">
+                            </a>
+                            
+                        </th>
+                        <th>
+                            <a href="assets/svd/11_2lfsc-m217n.gif">
+                                <image poster="" id="steve" autoplay controls loop playsinline height="100%" width="100%"
+                                    src="assets/svd/11_2lfsc-m217n.gif">
+                            </a>
+                        </th>    
+                    </tr>
+                
+            </tbody>
+        </table>
+
+
+        </br>
 
         <div class="col-md-8 col-md-offset-2">
-            <h2 class="content text-center">
-                <b>Selected Results</b>
-            </h2>
+            <h3 class="content text-center">
+                <b>Selected Results of MotionCtrl + VideoCrafter</b>
+            </h3>
             <ul>
                 <li>
                     MotionCtrl has the capability to guide the video generation model in creating videos with
